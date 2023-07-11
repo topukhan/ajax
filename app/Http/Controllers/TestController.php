@@ -11,7 +11,7 @@ class TestController extends Controller
 
     public function createFormView()
     {
-        return view("form");
+        return view("crud.create");
     }
     public function validation(Request $request)
     {
@@ -31,6 +31,6 @@ class TestController extends Controller
             return response()->json(['success' => 'data saved']);
             
         }
-        return response()->json(['error' => $validator->errors()]);
+        return response()->json(['error' => $validator->errors()->toJson()]);
     }
 }
